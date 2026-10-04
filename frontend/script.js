@@ -246,57 +246,62 @@ function resetWeather() {
 
 async function fetchWeather(peak) {
 
+    // =========================
+    // WEATHER
+    // =========================
     try {
 
-        // Get weather from our FastAPI backend
         const weatherResponse = await fetch(
             `https://avalanche-prediction-8w-api.onrender.com/api/peaks/${peak.dbId}/weather`
         );
 
         if (!weatherResponse.ok) {
-            throw new Error("Weather request failed");
+            throw new Error(`Weather HTTP ${weatherResponse.status}`);
         }
 
-        const weatherResult =
-            await weatherResponse.json();
+        const weatherResult = await weatherResponse.json();
 
-        // Show weather on the page
         displayWeather(weatherResult.weather);
 
+        weatherLoading.style.display = "none";
 
-        // Get risk from our FastAPI backend
+    } catch (error) {
+
+        console.error("Weather API error:", error);
+
+        weatherLoading.textContent =
+            "LIVE WEATHER TEMPORARILY UNAVAILABLE";
+
+    }
+
+
+    // =========================
+    // RISK
+    // =========================
+    try {
+
         const riskResponse = await fetch(
             `https://avalanche-prediction-8w-api.onrender.com/api/peaks/${peak.dbId}/risk`
         );
 
         if (!riskResponse.ok) {
-            throw new Error("Risk request failed");
+            throw new Error(`Risk HTTP ${riskResponse.status}`);
         }
 
-        const riskResult =
-            await riskResponse.json();
+        const riskResult = await riskResponse.json();
 
-        // Show risk on the page
         displayBackendRisk(riskResult.risk);
 
+    } catch (error) {
+
+        console.error("Risk API error:", error);
+
+        riskValue.textContent = "DATA UNAVAILABLE";
+        riskScore.textContent = "--";
+        riskBar.style.width = "0%";
+
     }
 
-    catch (error) {
-
-        console.error(error);
-
-        weatherLoading.textContent =
-            "Unable to retrieve mountain data.";
-
-        riskValue.textContent =
-            "DATA UNAVAILABLE";
-
-        riskScore.textContent =
-            "--";
-
-        riskBar.style.width =
-            "0%";
-    }
 }
 
 function displayBackendRisk(risk) {
