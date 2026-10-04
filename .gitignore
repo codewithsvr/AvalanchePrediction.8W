@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+
+.env
+
+backend/ml/data/
+backend/terrain/data/
+
+*.zip
+*.tif
+*.tiff
+
+.vscode/

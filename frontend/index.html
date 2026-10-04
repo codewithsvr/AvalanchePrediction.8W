@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>8W|Mountain Risk Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-left">
+        <div class="logo">8W</div>
+
+        <div class="logo-text">
+            <!--<span>8W</span>-->
+            <small>Avalanche Prediction.8W</small>
+        </div>
+    </div>
+
+    <nav>
+        <!--<a href="#overview">Overview</a>-->
+        <a href="#peaks">14 Peaks</a>
+        <!--<a href="#system">System</a>-->
+    </nav>
+
+    <div class="system-status">
+        <span class="status-dot"></span>
+        SYSTEM ONLINE
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="overview">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            8W / MOUNTAIN RISK INTELLIGENCE
+        </div>
+
+        <h1>
+            Understand the mountain.
+            <span>Respect the risk.</span>
+        </h1>
+
+        <p>
+            8W combines weather, terrain and environmental data
+            into a mountain-risk intelligence system designed for
+            high-altitude environments.
+        </p>
+
+        <div class="hero-actions">
+            <!-- your existing buttons -->
+        </div>
+
+    </div>
+
+
+    <!-- PUT THE NEW SVG HERE -->
+    <div class="hero-mountain">
+
+        <svg
+            viewBox="0 0 900 450"
+            preserveAspectRatio="xMidYMid meet"
+            class="mountain-svg"
+            aria-hidden="true"
+        >
+
+            <polygon
+                points="0,400 170,240 280,340 460,100 650,310 750,210 900,400"
+                class="mountain-fill"
+            />
+
+            <polyline
+                points="0,400 170,240 280,340 460,100 650,310 750,210 900,400"
+                class="mountain-line"
+            />
+
+            <polyline
+                points="360,230 460,100 530,190"
+                class="snow-line"
+            />
+
+            <circle
+                cx="360"
+                cy="230"
+                r="4"
+                class="mountain-signal"
+            />
+
+            <circle
+                cx="360"
+                cy="230"
+                r="11"
+                class="mountain-signal-glow"
+            />
+
+            <line
+                x1="0"
+                y1="390"
+                x2="900"
+                y2="390"
+                class="mountain-scan"
+            />
+
+        </svg>
+
+    </div>
+
+</section>
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="stat">
+        <strong>14 / 14</strong>
+        <span>Eight-thousanders covered</span>
+    </div>
+
+    <div class="stat">
+        <strong>8,849 m</strong>
+        <span>Highest elevation</span>
+    </div>
+
+    <div class="stat">
+        <strong>LIVE</strong>
+        <span>Weather integration</span>
+    </div>
+
+    <div class="stat">
+        <strong>8W</strong>
+        <span>Risk intelligence</span>
+    </div>
+
+</section>
+
+<!-- ================= PEAKS ================= -->
+
+<section class="peaks-section" id="peaks">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="eyebrow">01 / MOUNTAIN DATABASE</span>
+
+            <h2>
+                The world's<br>
+                <span>14 eight-thousanders.</span>
+            </h2>
+        </div>
+
+        <p>
+            Select a mountain to inspect its elevation,
+            location, environmental conditions and current
+            8W intelligence state.
+        </p>
+
+    </div>
+
+
+    <div class="peaks-layout">
+
+        <!-- Peak cards -->
+
+        <div class="peak-grid" id="peakGrid"></div>
+
+
+        <!-- Details -->
+
+        <aside class="peak-details" id="peakDetails">
+
+            <div class="details-header">
+
+                <span class="eyebrow">SELECTED PEAK</span>
+
+                <h3 id="detailName">
+                    Mount Everest
+                </h3>
+
+                <div class="detail-location" id="detailLocation">
+                    Nepal / China
+                </div>
+
+            </div>
+
+
+            <div class="detail-elevation">
+
+                <span>Elevation</span>
+
+                <strong id="detailElevation">
+                    8,849 m
+                </strong>
+
+            </div>
+
+
+            <div class="detail-grid">
+
+                <div>
+                    <span>Range</span>
+                    <strong id="detailRange">Himalayas</strong>
+                </div>
+
+                <div>
+                    <span>Region</span>
+                    <strong id="detailRegion">Mahalangur Himalaya</strong>
+                </div>
+
+                <div>
+                    <span>First ascent</span>
+                    <strong id="detailAscent">1953</strong>
+                </div>
+
+                <div>
+                    <span>Data status</span>
+                    <strong class="live-text">LIVE</strong>
+                </div>
+
+            </div>
+
+
+            <!-- Weather -->
+
+<!-- Weather -->
+
+<div class="weather-panel">
+
+<div class="panel-title weather-title">
+    <span>CURRENT CONDITIONS</span>
+
+    <span class="live-indicator">
+        <i></i>
+        LIVE
+    </span>
+</div>
+
+    <div
+        class="weather-loading"
+        id="weatherLoading"
+    >
+        Loading mountain weather...
+    </div>
+
+    <div
+        class="weather-grid"
+        id="weatherGrid"
+    >
+
+        <div class="weather-card">
+            <span>Temperature</span>
+            <strong id="temperature">--</strong>
+        </div>
+
+        <div class="weather-card">
+            <span>Wind</span>
+            <strong id="wind">--</strong>
+        </div>
+
+        <div class="weather-card">
+            <span>Snowfall</span>
+            <strong id="snowfall">--</strong>
+        </div>
+
+        <div class="weather-card">
+            <span>Visibility</span>
+            <strong id="visibility">--</strong>
+        </div>
+
+        <div class="weather-card">
+            <span>Snow Depth</span>
+            <strong id="snowDepth">--</strong>
+        </div>
+
+        <div class="weather-card">
+            <span>Wind Gust</span>
+            <strong id="windGust">--</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Risk -->
+
+<div class="risk-panel">
+
+    <div class="panel-title">
+        8W MODELED RISK INDICATOR
+    </div>
+
+    <div class="risk-header">
+
+        <div>
+
+            <span>
+                Environmental risk signal
+            </span>
+
+            <strong id="riskValue">
+                ANALYZING
+            </strong>
+
+        </div>
+
+        <div
+            class="risk-score"
+            id="riskScore"
+        >
+            --
+        </div>
+
+    </div>
+
+
+    <div class="risk-bar">
+
+        <div id="riskBar"></div>
+
+    </div>
+
+
+    <!-- Risk Summary -->
+
+    <div class="risk-summary">
+
+        <div>
+            <span>ASSESSMENT</span>
+
+            <strong id="riskAssessment">
+                WAITING FOR DATA
+            </strong>
+        </div>
+
+        <div>
+            <span>CONFIDENCE</span>
+
+            <strong id="riskConfidence">
+                --
+            </strong>
+        </div>
+
+    </div>
+
+
+    <!-- Risk Factors -->
+
+    <div class="risk-breakdown">
+
+        <div class="panel-title">
+            CONTRIBUTING FACTORS
+        </div>
+
+        <div
+            class="risk-factors"
+            id="riskFactors"
+        >
+
+            <div>
+                <span>Weather Component</span>
+                <b>--</b>
+            </div>
+
+            <div>
+                <span>Terrain Component</span>
+                <b>--</b>
+            </div>
+
+            <div>
+                <span>Data Quality</span>
+                <b>--</b>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="data-note">
+
+        <span>DATA NOTE</span>
+
+        <p>
+            The 8W indicator combines live weather
+            conditions with terrain characteristics
+            and historical environmental data.
+            It is an experimental research indicator,
+            not an official avalanche forecast.
+        </p>
+
+    </div>
+
+</div>
+<!-- ================= SYSTEM ================= -->
+
+<section class="system-section" id="system">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="eyebrow">02 / SYSTEM ARCHITECTURE</span>
+
+            <h2>
+                From raw data<br>
+                to <span>mountain intelligence.</span>
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="system-grid">
+
+        <article class="system-card">
+
+            <div class="card-number">01</div>
+
+            <h3>Weather</h3>
+
+            <p>
+                Temperature, snowfall, wind, gusts,
+                visibility and precipitation.
+            </p>
+
+        </article>
+
+
+        <article class="system-card">
+
+            <div class="card-number">02</div>
+
+            <h3>Terrain</h3>
+
+            <p>
+                Elevation, slope, aspect and route
+                characteristics.
+            </p>
+
+        </article>
+
+
+        <article class="system-card">
+
+            <div class="card-number">03</div>
+
+            <h3>Risk Engine</h3>
+
+            <p>
+                Environmental signals are transformed
+                into an experimental risk indicator.
+            </p>
+
+        </article>
+
+
+        <article class="system-card">
+
+            <div class="card-number">04</div>
+
+            <h3>Machine Learning</h3>
+
+            <p>
+                Future versions will evaluate historical
+                conditions and avalanche observations.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DATA FLOW ================= -->
+
+<section class="data-flow">
+
+    <div class="flow-item">
+        <span>01</span>
+        WEATHER
+    </div>
+
+    <div class="flow-line"></div>
+
+    <div class="flow-item">
+        <span>02</span>
+        TERRAIN
+    </div>
+
+    <div class="flow-line"></div>
+
+    <div class="flow-item">
+        <span>03</span>
+        RISK ENGINE
+    </div>
+
+    <div class="flow-line"></div>
+
+    <div class="flow-item">
+        <span>04</span>
+        8W INTELLIGENCE
+    </div>
+
+</section>
+
+
+<!-- ================= SAFETY ================= -->
+
+<section class="safety">
+
+    <div class="safety-icon">!</div>
+
+    <div>
+
+        <strong>
+            SAFETY / RESEARCH PROTOTYPE
+        </strong>
+
+        <p>
+            8W is a technical research and decision-support
+            prototype. Environmental indicators can be
+            incomplete or inaccurate. This system does not
+            replace official avalanche forecasts, local
+            mountain authorities, professional guides,
+            expedition procedures or field observations.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        8W
+    </div>
+
+    <div>
+        MOUNTAIN RISK INTELLIGENCE
+    </div>
+
+    <div>
+        SHASHI
+    </div>
+
+</footer>
+
+
+<script src="data/peaks.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
