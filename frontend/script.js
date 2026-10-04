@@ -243,17 +243,45 @@ function resetWeather() {
 /* =========================================================
    FETCH WEATHER
 ========================================================= */
-
 async function fetchWeather(peak) {
 
     // =========================
-    // WEATHER
+    // LIVE WEATHER
     // =========================
     try {
 
-        const weatherResponse = await fetch(
-            `https://avalanche-prediction-8w-api.onrender.com/api/peaks/${peak.dbId}/weather`
+        // Get mountain coordinates from our backend
+        const peakResponse = await fetch(
+            `https://avalanche-prediction-8w-api.onrender.com/api/peaks/${peak.dbId}`
         );
+
+        if (!peakResponse.ok) {
+            throw new Error(`Peak HTTP ${peakResponse.status}`);
+        }
+
+        const peakData = await peakResponse.json();
+
+        const latitude = peakData.lat;
+        const longitude = peakData.lon;
+
+        // Ask Open-Meteo directly for current weather
+        const weatherUrl =
+            `https://api.open-meteo.com/v1/forecast` +
+            `?latitude=${latitude}` +
+            `&longitude=${longitude}` +
+            `&current=` +
+            `temperature_2m,` +
+            `relative_humidity_2m,` +
+            `precipitation,` +
+            `snowfall,` +
+            `snow_depth,` +
+            `visibility,` +
+            `wind_speed_10m,` +
+            `wind_direction_10m,` +
+            `wind_gusts_10m` +
+            `&timezone=UTC`;
+
+        const weatherResponse = await fetch(weatherUrl);
 
         if (!weatherResponse.ok) {
             throw new Error(`Weather HTTP ${weatherResponse.status}`);
@@ -261,13 +289,13 @@ async function fetchWeather(peak) {
 
         const weatherResult = await weatherResponse.json();
 
-        displayWeather(weatherResult.weather);
+        displayWeather(weatherResult);
 
         weatherLoading.style.display = "none";
 
     } catch (error) {
 
-        console.error("Weather API error:", error);
+        console.error("Live weather error:", error);
 
         weatherLoading.textContent =
             "LIVE WEATHER TEMPORARILY UNAVAILABLE";
@@ -303,7 +331,6 @@ async function fetchWeather(peak) {
     }
 
 }
-
 function displayBackendRisk(risk) {
 
     // ---------------------------------------------------------
