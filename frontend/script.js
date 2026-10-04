@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8001";
+const API_BASE = "https://avalanche-prediction-8w-api.onrender.com";
 async function getMountainRisk(mountainId) {
 
     try {
@@ -250,7 +250,7 @@ async function fetchWeather(peak) {
 
         // Get weather from our FastAPI backend
         const weatherResponse = await fetch(
-            `http://127.0.0.1:8001/api/peaks/${peak.dbId}/weather`
+            `https://avalanche-prediction-8w-api.onrender.com/api/peaks/${peak.dbId}/weather`
         );
 
         if (!weatherResponse.ok) {
@@ -266,7 +266,7 @@ async function fetchWeather(peak) {
 
         // Get risk from our FastAPI backend
         const riskResponse = await fetch(
-            `http://127.0.0.1:8001/api/peaks/${peak.dbId}/risk`
+            `https://avalanche-prediction-8w-api.onrender.com/api/peaks/${peak.dbId}/risk`
         );
 
         if (!riskResponse.ok) {
