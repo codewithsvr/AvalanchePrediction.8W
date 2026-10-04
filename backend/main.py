@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -24,6 +25,15 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="8W Mountain Risk Intelligence API",
     version="0.3.0"
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://avalanche-prediction-8w.onrender.com"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # =========================================================
