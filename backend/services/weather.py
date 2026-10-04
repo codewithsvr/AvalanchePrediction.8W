@@ -25,6 +25,10 @@ async def get_weather(
             "wind_gusts_10m"
         ]),
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e756ead (Fix live weather API)
         "timezone": "UTC"
     }
 
