@@ -25,17 +25,6 @@ async def get_weather(
             "wind_gusts_10m"
         ]),
 
-        "hourly": ",".join([
-            "temperature_2m",
-            "snowfall",
-            "snow_depth",
-            "wind_speed_10m",
-            "wind_gusts_10m",
-            "visibility"
-        ]),
-
-        "forecast_days": 2,
-
         "timezone": "UTC"
     }
 
