@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mountain Details | Avalanche Prediction.8W</title>
+
+    <!-- FONT -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="mountain-body">
+
+
+    <!-- =================================================
+         TOP NAVIGATION
+         ================================================= -->
+
+    <header class="mountain-topbar">
+
+        <!-- 8W LOGO -->
+        <a
+            href="index.html"
+            class="mountain-brand"
+        >
+
+            <div class="mountain-brand-mark">
+                8W
+            </div>
+
+            <div class="mountain-brand-text">
+
+                <span>
+                    Avalanche Prediction.8W
+                </span>
+
+                <small>
+                 
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="mountain-nav">
+
+            <a href="index.html">
+                OVERVIEW
+            </a>
+
+            <a href="index.html#peaks">
+                14 PEAKS
+            </a>
+
+            <a href="index.html#system">
+                SYSTEM
+            </a>
+
+        </nav>
+
+
+        <!-- SYSTEM STATUS -->
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            SYSTEM ONLINE
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         MAIN PAGE
+         ================================================= -->
+
+    <main class="mountain-page">
+
+
+        <!-- =================================================
+             BACK BUTTON
+             ================================================= -->
+
+        <a
+            href="index.html#peaks"
+            class="back-button"
+        >
+            ← BACK TO 14 PEAKS
+        </a>
+
+
+
+        <!-- =================================================
+             MOUNTAIN HERO
+             ================================================= -->
+
+        <section class="mountain-hero">
+
+
+            <!-- LEFT SIDE -->
+
+            <div class="mountain-header">
+
+                <div class="mountain-label">
+                    MOUNTAIN PROFILE
+                </div>
+
+
+                <h1 id="mountainName">
+                    LOADING...
+                </h1>
+
+
+                <div class="mountain-meta">
+
+                    <span id="mountainElevation">
+                        --
+                    </span>
+
+                    <span class="meta-dot">
+                        •
+                    </span>
+
+                    <span id="mountainRange">
+                        --
+                    </span>
+
+                    <span class="meta-dot">
+                        •
+                    </span>
+
+                    <span id="mountainCountry">
+                        --
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT SIDE: MOUNTAIN -->
+
+            <div class="mountain-visual">
+
+    <svg
+        class="mountain-svg"
+        viewBox="0 0 900 450"
+        preserveAspectRatio="xMidYMid meet"
+        aria-label="Mountain illustration"
+    >
+
+        <!-- MOUNTAIN BODY -->
+
+        <polygon
+            points="0,400 170,240 280,340 460,100 650,310 750,210 900,400"
+            class="mountain-fill"
+        />
+
+
+        <!-- MOUNTAIN OUTLINE -->
+
+        <polyline
+            points="0,400 170,240 280,340 460,100 650,310 750,210 900,400"
+            class="mountain-line"
+        />
+
+
+        <!-- MOVING RED RIDGE -->
+
+        <polyline
+            points="360,230 460,100 530,190"
+            class="mountain-snow-line"
+        />
+
+
+        <!-- RED MOVING SIGNAL -->
+
+        <circle
+            cx="360"
+            cy="230"
+            r="5"
+            class="mountain-signal"
+        />
+
+        <circle
+            cx="360"
+            cy="230"
+            r="12"
+            class="mountain-signal-glow"
+        />
+
+
+        <!-- SMALL SIGNAL BUBBLES -->
+
+        <circle
+            cx="250"
+            cy="270"
+            r="3"
+            class="signal-bubble bubble-1"
+        />
+
+        <circle
+            cx="330"
+            cy="190"
+            r="3"
+            class="signal-bubble bubble-2"
+        />
+
+        <circle
+            cx="540"
+            cy="160"
+            r="3"
+            class="signal-bubble bubble-3"
+        />
+
+        <circle
+            cx="620"
+            cy="280"
+            r="3"
+            class="signal-bubble bubble-4"
+        />
+
+        <circle
+            cx="720"
+            cy="220"
+            r="3"
+            class="signal-bubble bubble-5"
+        />
+
+    </svg>
+
+</div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             01 CURRENT CONDITIONS
+             ================================================= -->
+
+        <section class="weather-section">
+
+            <div class="section-heading">
+
+                <span>
+                    01
+                </span>
+
+                CURRENT CONDITIONS
+
+            </div>
+
+
+            <div class="weather-grid">
+
+
+                <!-- TEMPERATURE -->
+
+                <div class="weather-card">
+
+                    <span>
+                        TEMPERATURE
+                    </span>
+
+                    <strong id="temperature">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <!-- WIND -->
+
+                <div class="weather-card">
+
+                    <span>
+                        WIND
+                    </span>
+
+                    <strong id="wind">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <!-- SNOWFALL -->
+
+                <div class="weather-card">
+
+                    <span>
+                        SNOWFALL
+                    </span>
+
+                    <strong id="snowfall">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <!-- SNOW DEPTH -->
+
+                <div class="weather-card">
+
+                    <span>
+                        SNOW DEPTH
+                    </span>
+
+                    <strong id="snowDepth">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <!-- WIND GUST -->
+
+                <div class="weather-card">
+
+                    <span>
+                        WIND GUST
+                    </span>
+
+                    <strong id="windGust">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <!-- VISIBILITY -->
+
+                <div class="weather-card">
+
+                    <span>
+                        VISIBILITY
+                    </span>
+
+                    <strong id="visibility">
+                        --
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             02 AVALANCHE RISK
+             ================================================= -->
+
+        <section class="risk-section">
+
+
+            <div class="section-heading">
+
+                <span>
+                    02
+                </span>
+
+                AVALANCHE RISK
+
+            </div>
+
+
+
+            <div class="risk-panel">
+
+
+                <div class="risk-main">
+
+
+                    <div
+                        class="risk-level"
+                        id="riskLevel"
+                    >
+                        LOADING
+                    </div>
+
+
+                    <div class="risk-score">
+
+                        <strong id="riskScore">
+                            --
+                        </strong>
+
+                        <span>
+                            / 100
+                        </span>
+
+                    </div>
+
+
+                    <div class="risk-bar">
+
+                        <div id="riskBar"></div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="risk-confidence">
+
+                    <span>
+                        CONFIDENCE
+                    </span>
+
+                    <strong id="confidence">
+                        --%
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             03 RISK BREAKDOWN
+             ================================================= -->
+
+        <section class="score-section">
+
+
+            <div class="section-heading">
+
+                <span>
+                    03
+                </span>
+
+                RISK BREAKDOWN
+
+            </div>
+
+
+
+            <div class="score-grid">
+
+
+                <div class="score-card">
+
+                    <span>
+                        WEATHER SCORE
+                    </span>
+
+                    <strong id="weatherScore">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="score-card">
+
+                    <span>
+                        TERRAIN SCORE
+                    </span>
+
+                    <strong id="terrainScore">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="score-card">
+
+                    <span>
+                        DATA QUALITY
+                    </span>
+
+                    <strong id="dataQuality">
+                        --%
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             04 RISK CONTRIBUTORS
+             ================================================= -->
+
+        <section class="contributors-section">
+
+
+            <div class="section-heading">
+
+                <span>
+                    04
+                </span>
+
+                RISK CONTRIBUTORS
+
+            </div>
+
+
+
+            <div
+                id="contributors"
+                class="contributors-list"
+            >
+                Loading...
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SAFETY
+             ================================================= -->
+
+        <section class="mountain-safety">
+
+            <div class="safety-icon">
+                !
+            </div>
+
+            <div>
+
+                <strong>
+                    SAFETY / RESEARCH PROTOTYPE
+                </strong>
+
+                <p>
+                    8W is a technical research and decision-support
+                    prototype. Environmental indicators may be
+                    incomplete or inaccurate. This system does not
+                    replace official avalanche forecasts, local
+                    mountain authorities, professional guides,
+                    expedition procedures or field observations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="mountain-footer">
+
+            <span>
+                8W MOUNTAIN RISK INTELLIGENCE
+            </span>
+
+            <span>
+                RESEARCH / DECISION SUPPORT PROTOTYPE
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="data/peaks.js"></script>
+
+    <script src="mountain.js"></script>
+
+
+</body>
+
+</html>

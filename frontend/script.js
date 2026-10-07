@@ -81,13 +81,8 @@ const riskConfidence =
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
     renderPeaks();
-
-    selectPeak(peaks[0]);
-
 });
-
 
 /* =========================================================
    RENDER PEAK CARDS
@@ -129,12 +124,11 @@ function renderPeaks() {
 
         `;
 
-        card.addEventListener("click", () => {
+       card.addEventListener("click", () => {
+    const mountainId = peak.dbId ?? peak.id;
 
-            selectPeak(peak);
-
-        });
-
+    window.location.href = `mountain.html?id=${mountainId}`;
+});
         peakGrid.appendChild(card);
 
     });
@@ -276,7 +270,7 @@ async function fetchWeather(peak) {
             `snowfall,` +
             `snow_depth,` +
             `visibility,` +
-            `wind_speed_10m,` +
+            `wind_speed_80m,` +
             `wind_direction_10m,` +
             `wind_gusts_10m` +
             `&timezone=UTC`;
@@ -647,11 +641,15 @@ function displayWeather(data) {
 
     /* Temperature */
     temperature.textContent =
-        `${Math.round(current.temperature_2m)}°C`;
+    current.temperature_2m != null
+        ? `${Number(current.temperature_2m).toFixed(1)}°C`
+        : "--";
 
     /* Wind */
     wind.textContent =
-        `${Math.round(current.wind_speed_10m)} km/h`;
+    current.wind_speed_80m != null
+        ? `${Number(current.wind_speed_80m).toFixed(1)} km/h`
+        : "--";
 
     /* Snowfall */
     snowfall.textContent =
