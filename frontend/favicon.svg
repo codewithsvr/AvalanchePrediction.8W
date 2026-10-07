@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+
+    <!-- Black background -->
+    <rect width="100" height="100" fill="#000000"></rect>
+
+    <!-- Red 8 -->
+    <text x="3" y="73" font-family="Arial, sans-serif" font-size="68" font-weight="900" fill="#E50914">
+        8
+    </text>
+
+    <!-- White mountain-shaped W -->
+    <path d="M52 30
+           L60 70
+           L68 48
+           L76 70
+           L84 30" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+
+</svg>
