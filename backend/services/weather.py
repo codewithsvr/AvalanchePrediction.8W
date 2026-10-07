@@ -4,12 +4,14 @@ import httpx
 
 async def get_weather(
     latitude: float,
-    longitude: float
+    longitude: float,
+    elevation: float
 ):
 
     url = "https://api.open-meteo.com/v1/forecast"
 
     params = {
+<<<<<<< HEAD
         "latitude": latitude,
         "longitude": longitude,
 
@@ -32,6 +34,24 @@ async def get_weather(
         "timezone": "UTC"
     }
 
+=======
+    "latitude": latitude,
+    "longitude": longitude,
+    "elevation": elevation,
+    "current": ",".join([
+        "temperature_2m",
+        "relative_humidity_2m",
+        "precipitation",
+        "snowfall",
+        "snow_depth",
+        "wind_speed_10m",
+        "wind_direction_10m",
+        "wind_gusts_10m"
+    ]),
+    "timezone": "UTC"
+}
+    
+>>>>>>> 3c41f9c (Update mountain weather variables and visibility)
 
     # Try up to 3 times
     for attempt in range(1, 4):
